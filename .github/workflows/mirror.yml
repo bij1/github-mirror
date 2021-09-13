@@ -13,14 +13,14 @@ jobs:
       run: &mirror |
         git clone --mirror "git@gitlab.com:bij1/$REPO.git"
         cd $REPO/
-        git remote add github "https://bij1:$GITHUB_TOKEN@github.com/$REPO.git"
+        git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
         git push --mirror github
         cd ..
       env:
         $REPO: bij1-wp-theme
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
 #     - name: Mirror
 #       run: *mirror
 #       env:
 #         $REPO: ???
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
