@@ -19,7 +19,7 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
       run: |
         git clone --mirror "https://$GITLAB_USER:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
-        cd $REPO/
+        cd $REPO.git/
         git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
         git push --mirror github
         cd ..
