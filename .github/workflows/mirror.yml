@@ -1,0 +1,26 @@
+# https://github.com/isaacs/github/issues/415#issuecomment-769711216
+name: Mirror Repos
+on:
+  schedule:
+    # nightly (0th hour 0th minute of every day)
+    - cron:  '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror
+      run: &mirror |
+        git clone --mirror "git@gitlab.com:bij1/$REPO.git"
+        cd $REPO/
+        git remote add github "https://bij1:$GITHUB_TOKEN@github.com/$REPO.git"
+        git push --mirror github
+        cd ..
+      env:
+        $REPO: bij1-wp-theme
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     - name: Mirror
+#       run: *mirror
+#       env:
+#         $REPO: ???
+#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
