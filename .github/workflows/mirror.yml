@@ -2,6 +2,9 @@
 name: Mirror Repos
 on:
   workflow_dispatch:
+  push:
+    branches:    
+      - main
   schedule:
     # nightly (0th hour 0th minute of every day)
     - cron:  '0 0 * * *'
