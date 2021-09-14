@@ -25,8 +25,24 @@ jobs:
       run: |
         REPO_SNAKE=`echo "$REPO" | sed 's/-/_/g'`
         echo $REPO_SNAKE
+        echo 1
+        echo secrets[env.REPO_SNAKE]
+        echo 2
+        echo secrets[$REPO_SNAKE]
+        echo 3
+        echo "${{ secrets[env.REPO_SNAKE] }}"
+        echo 4
+        echo "${{ secrets[$REPO_SNAKE] }}"
+        echo 5
+        echo `secrets[env.REPO_SNAKE]`
+        echo 6
+        echo `secrets[$REPO_SNAKE]`
+        echo 7
         ACCESS_TOKEN="${{ secrets[env.REPO_SNAKE] }}"
+        echo "$ACCESS_TOKEN"
+        echo 8
         echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
+        echo 9
         chmod 600 ~/.ssh/id_rsa
         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
         cd $REPO.git
