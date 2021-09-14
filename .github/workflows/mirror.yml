@@ -10,17 +10,27 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  build:
+  bij1_wp_theme:
     runs-on: ubuntu-latest
+    env:
+      REPO: bij1-wp-theme
+      GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+      ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
     steps:
-    - name: Mirror
-      env:
-        REPO: bij1-wp-theme
-        GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-        ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
-      run: |
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
-        cd $REPO.git/
-        git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
-        git push --mirror github
-        cd ..
+#     - name: Mirror
+#       run: |
+#         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+#         cd $REPO.git/
+#         git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
+#         git push --mirror github
+#         cd ..
+    - name: clone
+      run: git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+    - name: enter
+      run: cd $REPO.git/
+    - name: add remote
+      run: git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
+    - name: push
+      run: git push --mirror github
+    - name: leave
+      run: cd ..
