@@ -41,6 +41,12 @@ jobs:
       run: pwd
     - name: ls2
       run: ls
+    - name: enter
+      run: cd bij1-wp-theme.git
+    - name: pwd3
+      run: pwd
+    - name: ls3
+      run: ls
     - name: add remote
       run: git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
     - name: push
