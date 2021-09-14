@@ -19,12 +19,19 @@ jobs:
     - name: bij1-wp-theme
       env:
         REPO: bij1-wp-theme
+        SNAKE: bij1_wp_theme
         GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         # ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
         # ACCESS_TOKEN: ${{ secrets[echo "$REPO" | sed 's/-/_/g'] }}
       run: |
+        echo $SNAKE
+        echo -1
         REPO_SNAKE=`echo "$REPO" | sed 's/-/_/g'`
         echo $REPO_SNAKE
+        echo 0
+        echo "${{ secrets.bij1_wp_theme }}"
+        echo 0.5
+        echo "${{ secrets[env.SNAKE] }}"
         echo 1
         echo secrets[env.REPO_SNAKE]
         echo 2
