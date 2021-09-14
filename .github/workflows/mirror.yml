@@ -26,12 +26,6 @@ jobs:
 #         cd ..
     - name: clone
       run: git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
-#     - name: status
-#       run: git status
-    - name: pwd
-      run: pwd
-    - name: ls
-      run: ls -la
 #     - name: enter
 #       run: |
 #         echo $REPO.git
@@ -39,16 +33,13 @@ jobs:
 #         echo "$REPO.git"
 #         echo "${REPO}.git"
 #         cd "$REPO.git"
-#     - name: pwd2
-#       run: pwd
 #     - name: ls2
 #       run: ls -la
     - name: enter
-      run: cd bij1-wp-theme.git
-    - name: pwd3
-      run: pwd
-    - name: ls3
-      run: ls -la
+      run: |
+        ls -la
+        cd bij1-wp-theme.git
+        pwd
     - name: add remote
       run: git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
     - name: push
