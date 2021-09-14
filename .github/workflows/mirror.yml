@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Mirror
       run: |
-        ls /home/user/.ssh/
+        ls ~/.ssh/
         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
         cd $REPO.git
         echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
