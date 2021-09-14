@@ -19,33 +19,10 @@ jobs:
     - name: bij1-wp-theme
       env:
         REPO: bij1-wp-theme
-        SNAKE: bij1_wp_theme
-        GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-        # ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
-        # ACCESS_TOKEN: ${{ secrets[echo "$REPO" | sed 's/-/_/g'] }}
+        GITHUB_TOKEN: ${{ secrets.WP_THEME_GITHUB_TOKEN }}
+        GITLAB_TOKEN: ${{ secrets.WP_THEME_GITLAB_TOKEN }}
       run: |
-        echo -2
-        SNAAAKE="bij1_wp_theme"
-        echo "SNAAAKE: $SNAAAKE"
-        echo -1
-        REPO_SNAKE=`echo "$REPO" | sed 's/-/_/g'`
-        echo "REPO_SNAKE: $REPO_SNAKE"
-        echo 0
-        echo "{{ secrets.bij1_wp_theme }}: ${{ secrets.bij1_wp_theme }}"
-        echo 0.5
-        echo "{{ secrets[env.SNAKE] }}: ${{ secrets[env.SNAKE] }}"
-        echo 1
-        echo "{{ secrets[env.SNAAAKE] }}: ${{ secrets[env.SNAAAKE] }}"
-        echo 2
-        echo "{{ secrets[env.REPO_SNAKE] }}: ${{ secrets[env.REPO_SNAKE] }}"
-        echo 4
-        echo `secrets[env.REPO_SNAKE]`
-        echo 7
-        ACCESS_TOKEN="${{ secrets[env.REPO_SNAKE] }}"
-        echo "$ACCESS_TOKEN"
-        echo 8
-        echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
-        echo 9
+        echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
         cd $REPO.git
