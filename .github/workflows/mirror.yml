@@ -17,32 +17,9 @@ jobs:
       GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
       ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
     steps:
-#     - name: Mirror
-#       run: |
-#         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
-#         cd $REPO.git/
-#         git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
-#         git push --mirror github
-#         cd ..
-    - name: clone
-      run: git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
-#     - name: enter
-#       run: |
-#         echo $REPO.git
-#         echo '$REPO.git'
-#         echo "$REPO.git"
-#         echo "${REPO}.git"
-#         cd "$REPO.git"
-#     - name: ls2
-#       run: ls -la
-    - name: enter
+    - name: Mirror
       run: |
-        ls -la
-        cd bij1-wp-theme.git
-        pwd
-    - name: add remote
-      run: git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
-    - name: push
-      run: git push --mirror github
-    - name: leave
-      run: cd ..
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        cd $REPO.git
+        git remote add github "https://bij1:$ACCESS_TOKEN@github.com/$REPO.git"
+        git push --mirror github
