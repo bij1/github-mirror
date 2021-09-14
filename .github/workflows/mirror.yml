@@ -31,7 +31,12 @@ jobs:
     - name: ls
       run: ls
     - name: enter
-      run: cd "$REPO.git"
+      run: |
+        echo $REPO.git
+        echo '$REPO.git'
+        echo "$REPO.git"
+        echo "${REPO}.git"
+        cd "$REPO.git"
     - name: pwd2
       run: pwd
     - name: ls2
