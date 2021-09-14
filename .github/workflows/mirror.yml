@@ -26,6 +26,8 @@ jobs:
 #         cd ..
     - name: clone
       run: git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+    - name: status
+      run: git status
     - name: pwd
       run: pwd
     - name: ls
