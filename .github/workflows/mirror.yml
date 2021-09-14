@@ -10,21 +10,21 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  bij1_wp_theme:
+  mirror:
     runs-on: ubuntu-latest
-    env:
-      REPO: bij1-wp-theme
-      GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
-      ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
     steps:
     - name: Prep
       run: |
         mkdir ~/.ssh/
-    - name: Mirror
+    - name: bij1-wp-theme
+      env:
+        REPO: bij1-wp-theme
+        GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
       run: |
-        ls ~/.ssh/
+        echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
         cd $REPO.git
-        echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
