@@ -30,8 +30,6 @@ jobs:
         echo 2
         echo "${{ secrets[env.REPO_SNAKE] }}"
         echo 4
-        echo "${{ secrets[$REPO_SNAKE] }}"
-        echo 5
         echo `secrets[env.REPO_SNAKE]`
         echo 7
         ACCESS_TOKEN="${{ secrets[env.REPO_SNAKE] }}"
