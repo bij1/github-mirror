@@ -23,9 +23,9 @@ jobs:
         # ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
         # ACCESS_TOKEN: ${{ secrets[echo "$REPO" | sed 's/-/_/g'] }}
       run: |
-        set REPO_SNAKE=echo "$REPO" | sed 's/-/_/g'
+        REPO_SNAKE=echo "$REPO" | sed 's/-/_/g'
         echo $REPO_SNAKE
-        set ACCESS_TOKEN="${{ secrets[env.REPO_SNAKE] }}"
+        ACCESS_TOKEN="${{ secrets[env.REPO_SNAKE] }}"
         echo "$ACCESS_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
