@@ -17,6 +17,9 @@ jobs:
       GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
       ACCESS_TOKEN: ${{ secrets.bij1_wp_theme }}
     steps:
+    - name: Prep
+      run: |
+        mkdir ~/.ssh/
     - name: Mirror
       run: |
         ls ~/.ssh/
