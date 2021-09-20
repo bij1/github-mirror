@@ -37,7 +37,7 @@ jobs:
 
     - name: ondersteuningsverklaringen
       env:
-        GROUP: .
+        GROUP: flyer
         REPO: ondersteuningsverklaringen
         GITHUB_TOKEN: ${{ secrets.ondersteuningsverklaringen_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.ondersteuningsverklaringen_GITLAB_TOKEN }}
