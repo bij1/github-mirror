@@ -22,13 +22,14 @@ jobs:
 
     - name: verkiezingen
       env:
+        GROUP: flyer
         REPO: verkiezingen
         GITHUB_TOKEN: ${{ secrets.verkiezingen_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.verkiezingen_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -36,13 +37,14 @@ jobs:
 
     - name: ondersteuningsverklaringen
       env:
+        GROUP: .
         REPO: ondersteuningsverklaringen
         GITHUB_TOKEN: ${{ secrets.ondersteuningsverklaringen_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.ondersteuningsverklaringen_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -50,13 +52,14 @@ jobs:
 
     - name: wingspress
       env:
+        GROUP: website
         REPO: wingspress
         GITHUB_TOKEN: ${{ secrets.wingspress_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.wingspress_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -64,13 +67,14 @@ jobs:
 
     - name: mobiledoc_wp_renderer
       env:
+        GROUP: website
         REPO: mobiledoc-wp-renderer
         GITHUB_TOKEN: ${{ secrets.mobiledoc_wp_renderer_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.mobiledoc_wp_renderer_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -78,13 +82,14 @@ jobs:
 
     - name: iktelookmee
       env:
+        GROUP: website
         REPO: iktelookmee
         GITHUB_TOKEN: ${{ secrets.iktelookmee_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.iktelookmee_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -92,13 +97,14 @@ jobs:
 
     - name: ingang
       env:
+        GROUP: meets
         REPO: ingang
         GITHUB_TOKEN: ${{ secrets.ingang_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.ingang_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -106,13 +112,14 @@ jobs:
 
     - name: linkbee
       env:
+        GROUP: website
         REPO: linkbee
         GITHUB_TOKEN: ${{ secrets.linkbee_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.linkbee_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -120,13 +127,14 @@ jobs:
 
     - name: portal
       env:
+        GROUP: intranet
         REPO: portal
         GITHUB_TOKEN: ${{ secrets.portal_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.portal_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -134,13 +142,14 @@ jobs:
 
     - name: keycloak
       env:
+        GROUP: intranet
         REPO: keycloak
         GITHUB_TOKEN: ${{ secrets.keycloak_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.keycloak_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
@@ -148,13 +157,14 @@ jobs:
 
     - name: nextcloud
       env:
+        GROUP: intranet
         REPO: nextcloud
         GITHUB_TOKEN: ${{ secrets.nextcloud_GITHUB_TOKEN }}
         GITLAB_TOKEN: ${{ secrets.nextcloud_GITLAB_TOKEN }}
       run: |
         echo "$GITHUB_TOKEN" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$REPO.git"
+        git clone --mirror "https://github:$GITLAB_TOKEN@gitlab.com/bij1/$GROUP/$REPO.git"
         cd $REPO.git
         git remote add github "git@github.com:bij1/$REPO.git"
         git push --mirror github
